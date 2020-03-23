@@ -58,11 +58,13 @@ def solution(A):
     # write your code in Python 3.6
     # 製造一有序集合並與A做比對做判斷是否為排列
     # more detail please check it out at https://codesays.com/2014/solution-to-perm-check-by-codility/#comment-310 .
+    A = sorted(A)
+    
+    for i in range(1,len(A)+1):
+        if i != A[i - 1]:
+            return 0
+    return 1
 
-    if set(A) == set(range(1 , 1 + len(A))):
-        return 1
-    else:
-        return 0
 
 # testcase 1
 A = [4 ,1 ,3, 2]
