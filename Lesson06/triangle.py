@@ -47,20 +47,12 @@ def solution(A):
     # 先將A中大於0的元素加到新陣列N，若N剩餘個數<3則回傳0
     # 排序N後掃描陣列計算N[i]+N[i+1]之和是否大於N[i+2]
 
-    N = []
-    for idx in A:
-        if idx > 0:
-            N.append(idx)
-
-    if len(N) < 3:
-        return 0
-
-    N.sort()
-
-    for i in range(len(N) - 2):
-        if (N[i] + N[i+1]) > N[i+2]:
-            return 1
-
+    A = list(set(A))
+    
+    for i in range(len(A) -3):
+         if A[i] + A[i+1] > A[i+2] and A[i + 1] + A[i+2] > A[i] and A[i] + A[i+2] > A[i+1]:
+             return 1
+         
     return 0
 
 
